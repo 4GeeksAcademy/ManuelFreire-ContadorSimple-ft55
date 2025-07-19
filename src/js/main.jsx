@@ -9,10 +9,19 @@ import "bootstrap"
 import '../styles/index.css'
 
 // components
-import Home from './components/Home';
+import SecondsCounter from './components/Home';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+let seconds = 0;
+
+setInterval(() => {
+  root.render(<SecondsCounter seconds={seconds} />);
+  seconds++;
+}, 1000);
+
+root.render(
   <React.StrictMode>
-    <Home/>
+    <SecondsCounter counter="1000"/>
   </React.StrictMode>,
 )

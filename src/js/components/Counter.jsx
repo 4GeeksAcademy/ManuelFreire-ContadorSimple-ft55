@@ -1,5 +1,7 @@
+import React from 'react'
+
 const SecondsCounter = () => {
-    let counter = 0;
+    let counter = 500;
     let intervalId = false;
 
     if (intervalId === false) {
@@ -9,9 +11,9 @@ const SecondsCounter = () => {
             const renderElement = document.getElementById("counterRender");
 
             if (renderElement) {
-                const renderMap = renderElement.textContent = counter.toString().padStart(6,'0').split('null');
+                const renderMap = renderElement.innerHTML = counter.toString().padStart(6,'0').split('null');
                 renderMap.map((mapeo, index) => (
-                    <span key={index} className="bg-secondary text-dark fw-bold fs-3 p-2 rounded">
+                    <span key={index}>
                         {mapeo}
                     </span>
                 )
@@ -20,14 +22,13 @@ const SecondsCounter = () => {
         }, 1000);
     }
 
-
+    
     return (
         <div className="container d-flex justify-content-center">
-            <h1 id="counterRender"></h1>
-        </div>
+            <h1 className='d-flex ' id='counterRender'>
 
-        
-        
+            </h1>
+        </div>
     );
 };
 
